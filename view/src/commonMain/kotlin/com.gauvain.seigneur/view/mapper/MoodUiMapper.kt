@@ -13,3 +13,5 @@ class MoodUiMapper {
         Mood.UNSET -> MoodIconUiModel.None
     }
 }
+
+

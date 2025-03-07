@@ -26,7 +26,7 @@ fun PublicationUserBlock(
             model = uiModel.imageUrl,
             contentDescription = null,
             modifier = Modifier.size(36.dp).clip(
-                MaterialTheme.shapes.extraLarge
+                MaterialTheme.shapes.small
             )
         )
         Text(

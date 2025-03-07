@@ -21,7 +21,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    navController: DaayNavController = LocalNavController.current,
     gutter: PaddingValues = LocalGutter.current,
     viewModel: HomeViewModel = HomeViewModel()
 ) {
@@ -34,7 +33,7 @@ fun HomeScreen(
                 contentPadding = PaddingValues(
                     bottom = gutter.calculateBottomPadding()
                 ),
-                verticalArrangement = Arrangement.spacedBy(32.dp)
+                verticalArrangement = Arrangement.spacedBy(48.dp)
             ) {
                 items(publications) {
                     Section(it, Modifier.fillMaxWidth())
