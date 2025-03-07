@@ -43,7 +43,6 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.ui)
             implementation(compose.components.uiToolingPreview)
-
         }
         commonTest.dependencies {
         }
