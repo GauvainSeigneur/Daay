@@ -36,6 +36,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.androidx.viewmodel.compose)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(compose.foundation)
@@ -43,6 +45,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.ui)
             implementation(compose.components.uiToolingPreview)
+
         }
         commonTest.dependencies {
         }

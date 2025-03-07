@@ -3,12 +3,16 @@ package com.gauvain.seigneur.view
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
@@ -26,8 +30,10 @@ import com.gauvain.seigneur.view.screens.AccountScreen
 import com.gauvain.seigneur.view.screens.AddScreen
 import com.gauvain.seigneur.view.screens.HomeScreen
 import com.gauvain.seigneur.view.theme.DaayAppTheme
+import com.gauvain.seigneur.view.theme.LocalGutter
 import com.gauvain.seigneur.view.widget.DaayBottomNav
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BeRealNavHost(
     navigationViewModel: NavigationViewModel = NavigationViewModel()
@@ -39,40 +45,49 @@ fun BeRealNavHost(
 
         CompositionLocalProvider(LocalNavController provides navigationViewModel) {
             Scaffold(
-                modifier = Modifier
-                    .fillMaxSize(),
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Text(text = "Daay",
+                                style = MaterialTheme.typography.headlineMedium)
+                        }
+                    )
+                },
                 bottomBar = {
                     DaayBottomNav(
                         navigationItems = navigationItems,
                         modifier = Modifier.fillMaxWidth()
                     )
-                }
+                },
+                modifier = Modifier.fillMaxSize(),
             ) { innerPadding ->
-
-                NavHost(
-                    navController = navController,
-                    startDestination = navigationItems.first().route.name,
-                    modifier = Modifier
-                        .background(MaterialTheme.colorScheme.background)
-                        .fillMaxSize()
-                ) {
-                    composable(route = NavigationScreen.Home.name) {
-                        HomeScreen(
-                            modifier = Modifier
-                                .fillMaxSize()
-                        )
-                    }
-                    composable(route = NavigationScreen.Add.name) {
-                        AddScreen(
-                            modifier = Modifier
-                                .fillMaxSize()
-                        )
-                    }
-                    composable(route = NavigationScreen.Account.name) {
-                        AccountScreen(
-                            modifier = Modifier
-                                .fillMaxSize()
-                        )
+                CompositionLocalProvider(LocalGutter provides innerPadding) {
+                    NavHost(
+                        navController = navController,
+                        startDestination = navigationItems.first().route.name,
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.background)
+                            .fillMaxSize()
+                    ) {
+                        composable(route = NavigationScreen.Home.name) {
+                            HomeScreen(
+                                modifier = Modifier
+                                    .padding(top = innerPadding.calculateTopPadding())
+                                    .fillMaxSize()
+                            )
+                        }
+                        composable(route = NavigationScreen.Add.name) {
+                            AddScreen(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                            )
+                        }
+                        composable(route = NavigationScreen.Account.name) {
+                            AccountScreen(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                            )
+                        }
                     }
                 }
             }

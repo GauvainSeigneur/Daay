@@ -1,5 +1,6 @@
 package com.gauvain.seigneur.remote.http
 
+import com.gauvain.seigneur.remote.response.HomeResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -10,7 +11,7 @@ internal class HttpDaay(
     private val httpClient: HttpClient,
 ) {
 
-    suspend fun getHome(): String =
+    suspend fun getHome(): HomeResponse =
         httpClient
             .get("home") {
                 contentType(ContentType.Application.Json)

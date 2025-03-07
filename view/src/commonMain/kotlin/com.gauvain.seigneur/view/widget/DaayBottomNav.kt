@@ -28,7 +28,9 @@ fun DaayBottomNav(
     val brush = Brush.verticalGradient(
         listOf(
             Color.Transparent,
-            MaterialTheme.colorScheme.background.copy(alpha = 0.25f),
+            MaterialTheme.colorScheme.background.copy(alpha = 0.05f),
+            MaterialTheme.colorScheme.background.copy(alpha = 0.10f),
+            MaterialTheme.colorScheme.background.copy(alpha = 0.15f),
             MaterialTheme.colorScheme.background.copy(alpha = 0.50f),
             MaterialTheme.colorScheme.background.copy(alpha = 0.75f),
             MaterialTheme.colorScheme.background.copy(alpha = 0.95f),

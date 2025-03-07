@@ -11,6 +11,6 @@ val httpCommonModule = module {
     includes(remotePlatformModule())
     factory { HttpClientFactory(getOrNull(), getOrNull()) }
 
-    factoryOf(::HttpDaayFactory)
+    singleOf(::HttpDaayFactory)
     singleOf(::RemoteDaay)
 }
