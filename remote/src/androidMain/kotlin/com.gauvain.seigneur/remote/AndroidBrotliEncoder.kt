@@ -1,6 +1,6 @@
-package com.gauvain.seigneur.data
+package com.gauvain.seigneur.remote
 
-import com.gauvain.seigneur.data.http.BrotliEncoder
+import com.gauvain.seigneur.remote.http.BrotliEncoder
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.jvm.javaio.toByteReadChannel

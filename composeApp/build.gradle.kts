@@ -1,4 +1,6 @@
 
+import org.gradle.kotlin.dsl.android
+import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -33,11 +35,13 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             api(projects.data)
             api(projects.domain)
             api(projects.view)
+            api(projects.remote)
             api(libs.koin.core)
             implementation(compose.runtime)
         }

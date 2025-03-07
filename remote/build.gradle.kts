@@ -1,11 +1,7 @@
 import org.gradle.kotlin.dsl.android
-import org.gradle.kotlin.dsl.api
-import org.gradle.kotlin.dsl.get
-import org.gradle.kotlin.dsl.implementation
 import org.gradle.kotlin.dsl.libs
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import kotlin.dec
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -26,22 +22,29 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "data"
+            baseName = "remote"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(projects.domain)
-            api(projects.remote)
+            api(libs.bundles.ktor.client)
+            api(libs.bundles.ktor.client)
+            api(libs.kotlinx.serializer)
             implementation(libs.koin.core)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
+            implementation(libs.koin.test)
         }
         androidMain.dependencies {
+            implementation(libs.brotli.dec)
+            implementation(libs.ktor.client.android)
         }
         iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

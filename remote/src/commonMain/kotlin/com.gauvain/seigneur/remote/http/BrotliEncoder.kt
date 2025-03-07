@@ -1,4 +1,4 @@
-package com.gauvain.seigneur.data.http
+package com.gauvain.seigneur.remote.http
 
 import io.ktor.util.ContentEncoder
 

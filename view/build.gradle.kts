@@ -30,6 +30,7 @@ kotlin {
     }
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.domain)
             implementation(libs.koin.core)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation.compose)

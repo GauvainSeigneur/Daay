@@ -1,4 +1,4 @@
-package com.gauvain.seigneur.data.http
+package com.gauvain.seigneur.remote.http
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
@@ -15,7 +15,7 @@ import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalSerializationApi::class)
 class HttpClientFactory internal constructor(
-    private val brotliEncoder: BrotliEncoder?,
+    private val brotliEncoder: BrotliEncoder? = null,
     private val httpClientEngine: HttpClientEngine? = null, // todo needed ?
 ) {
 
@@ -36,14 +36,6 @@ class HttpClientFactory internal constructor(
         install(DefaultRequest) {
             url(baseUrl)
         }
-
-        install(Logging) {
-            logger = Logger.SIMPLE
-            level = getLogLevel(isDebug)
-        }
-
-        developmentMode = isDebug
-
         install(ContentNegotiation) {
             json(json)
         }

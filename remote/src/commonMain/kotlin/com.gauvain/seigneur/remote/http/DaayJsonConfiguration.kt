@@ -1,4 +1,4 @@
-package com.gauvain.seigneur.data.http
+package com.gauvain.seigneur.remote.http
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule

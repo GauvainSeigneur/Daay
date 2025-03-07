@@ -1,20 +1,19 @@
-package com.gauvain.seigneur.data.http
+package com.gauvain.seigneur.remote.http
 
 import io.ktor.client.HttpClient
 
-private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+private const val BASE_URL = "https://api.mocki.io/v2/dpq3yuod/"
 
-internal class HttpDaayFactory(
+class HttpDaayFactory(
     httpClientFactory: HttpClientFactory,
-    configuration: HttpConfiguration,
 ) {
 
     private val httpClient: HttpClient = httpClientFactory.createClient(
         baseUrl = BASE_URL,
-        isDebug = configuration.enableLog,
+        isDebug = true, // todo use config
         json = createBeRealJsonConfiguration(),
     )
 
-    fun createHttpBeReal(): HttpDaay =
+    internal fun createHttpDay(): HttpDaay =
         HttpDaay(httpClient)
 }
