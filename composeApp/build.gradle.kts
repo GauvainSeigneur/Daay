@@ -39,9 +39,8 @@ kotlin {
         }
         commonMain.dependencies {
             api(projects.data)
-            api(projects.domain)
-            api(projects.view)
-            api(projects.remote)
+            implementation(projects.view)
+            implementation(projects.remote)
             api(libs.koin.core)
             implementation(compose.runtime)
         }

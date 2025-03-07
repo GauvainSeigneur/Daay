@@ -1,6 +1,8 @@
 package com.gauvain.seigneur.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
@@ -15,6 +17,7 @@ import com.gauvain.seigneur.view.navigation.NavigationScreen
 import com.gauvain.seigneur.view.navigation.NavigationViewModel
 import com.gauvain.seigneur.view.screens.HomeScreen
 import com.gauvain.seigneur.view.screens.StartScreen
+import com.gauvain.seigneur.view.theme.DaayAppTheme
 
 // todo navigationViewModel and nabvigationUiModel
 @Composable
@@ -23,28 +26,30 @@ fun BeRealNavHost(
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val navController: NavHostController = rememberNavController()
-
-    CompositionLocalProvider(LocalNavController provides navigationViewModel) {
-        NavHost(
-            navController = navController,
-            startDestination = NavigationScreen.Start.name,
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            composable(route = NavigationScreen.Start.name) {
-                StartScreen()
+    DaayAppTheme {
+        CompositionLocalProvider(LocalNavController provides navigationViewModel) {
+            NavHost(
+                navController = navController,
+                startDestination = NavigationScreen.Start.name,
+                modifier = Modifier
+                    .background(MaterialTheme.colorScheme.background)
+                    .fillMaxSize()
+            ) {
+                composable(route = NavigationScreen.Start.name) {
+                    StartScreen()
+                }
+                composable(route = NavigationScreen.Home.name) {
+                    HomeScreen()
+                }
             }
-            composable(route = NavigationScreen.Home.name) {
-                HomeScreen()
-            }
-        }
 
-        LaunchedEffect(navigationViewModel.navigationFlow) {
-            lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                navigationViewModel.navigationFlow.collect { screen ->
-                    screen?.let {
-                        navController.navigate(it.name)
-                    } ?: navController.popBackStack()
+            LaunchedEffect(navigationViewModel.navigationFlow) {
+                lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    navigationViewModel.navigationFlow.collect { screen ->
+                        screen?.let {
+                            navController.navigate(it.name)
+                        } ?: navController.popBackStack()
+                    }
                 }
             }
         }
