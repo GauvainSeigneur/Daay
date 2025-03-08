@@ -14,7 +14,7 @@ The architecture is divided into five layers to ensure clarity, modularity, and 
 2. **View**
 4. **Domain**
 5. **Data**
-5. **Http**
+5. **Remote**
 
 ---
 
@@ -52,10 +52,13 @@ The architecture is divided into five layers to ensure clarity, modularity, and 
 
 ---
 
-### 5. Data
-- **Purpose**: Handles interactions with external data sources, APIs, or storage.
+### 4. Data
+- **Purpose**: Glue between domain and remote.
 
 ---
+
+### 5. Remote
+- **Purpose**: Handles interactions with external data sources and provide models.
 
 ### Key Technical Choices
 
