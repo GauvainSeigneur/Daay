@@ -12,7 +12,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @Composable
 fun AccountScreen(
     modifier: Modifier = Modifier,
-    navController: DaayNavController = LocalNavController.current,
 ) {
     Box(modifier) {
         Text("Account Screen!")

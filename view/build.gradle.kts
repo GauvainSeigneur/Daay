@@ -38,6 +38,8 @@ kotlin {
             implementation(libs.androidx.viewmodel.compose)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
+            implementation(libs.peekaboo.ui)
+            implementation(libs.peekaboo.image.picker)
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(compose.foundation)

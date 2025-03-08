@@ -1,9 +1,6 @@
 package com.gauvain.seigneur.data.mapper
 
 import com.gauvain.seigneur.domain.models.Mood
-import com.gauvain.seigneur.domain.models.Publication
-import com.gauvain.seigneur.domain.models.PublicationUserInfo
-import com.gauvain.seigneur.remote.response.SectionResponse
 
 class MoodMapper {
 

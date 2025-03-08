@@ -3,9 +3,7 @@ package com.gauvain.seigneur.view.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gauvain.seigneur.domain.usecase.GetHomeUseCase
-import com.gauvain.seigneur.view.mapper.PublicationItemUiMapper
 import com.gauvain.seigneur.view.mapper.SectionItemUiMapper
-import com.gauvain.seigneur.view.models.PublicationItemUiModel
 import com.gauvain.seigneur.view.models.ScreenStateUiModel
 import com.gauvain.seigneur.view.models.SectionItemUiModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -27,7 +25,6 @@ class HomeViewModel : ViewModel(), KoinComponent {
         }.map { result ->
             result.fold(
                 onSuccess = {
-                    println("lolilol success")
                     ScreenStateUiModel.Success(
                         content = it.map { section ->
                             uiMapper.map(section)
@@ -35,7 +32,6 @@ class HomeViewModel : ViewModel(), KoinComponent {
                     )
                 },
                 onFailure = {
-                    println("lolilol failure $it")
                     ScreenStateUiModel.Error(it.message?:"oups")
                 }
             )
@@ -44,6 +40,4 @@ class HomeViewModel : ViewModel(), KoinComponent {
             SharingStarted.WhileSubscribed(),
             ScreenStateUiModel.Loading("loading")
         )
-
-
 }

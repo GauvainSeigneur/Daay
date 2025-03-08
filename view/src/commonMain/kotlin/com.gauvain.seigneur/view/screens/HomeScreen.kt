@@ -10,8 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.gauvain.seigneur.view.navigation.DaayNavController
-import com.gauvain.seigneur.view.navigation.LocalNavController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gauvain.seigneur.view.theme.LocalGutter
 import com.gauvain.seigneur.view.viewmodels.HomeViewModel
 import com.gauvain.seigneur.view.widget.Section
@@ -22,7 +21,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 fun HomeScreen(
     modifier: Modifier = Modifier,
     gutter: PaddingValues = LocalGutter.current,
-    viewModel: HomeViewModel = HomeViewModel()
+    viewModel: HomeViewModel = viewModel {
+        HomeViewModel()
+    }
 ) {
     Surface(modifier) {
         val uiModel = viewModel.uiModel.collectAsState().value

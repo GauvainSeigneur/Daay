@@ -34,10 +34,10 @@ fun <T>StateScreen(
 ) {
     when(stateUiModel) {
         is ScreenStateUiModel.Loading -> {
-          //  Loading()
+          Loading()
         }
         is ScreenStateUiModel.Error -> {
-            Text("Error")
+            Text("Error : ${stateUiModel.errorInfo}")
         }
         is ScreenStateUiModel.Success -> {
             onSuccess(stateUiModel.content)

@@ -31,7 +31,6 @@ class PublicationMapper(
                 comment = response.comment,
                 mood = moodMapper.map(response.mood),
                 achievements = response.achievements.mapNotNull { sectionAchievement ->
-                    println("lolilol map domain $sectionAchievement")
                     achievementMapper.map(sectionAchievement)
                 },
                 medias = response.medias,

@@ -1,8 +1,6 @@
 package com.gauvain.seigneur.data.repository
 
-import com.gauvain.seigneur.data.mapper.PublicationMapper
 import com.gauvain.seigneur.data.mapper.SectionMapper
-import com.gauvain.seigneur.domain.models.Publication
 import com.gauvain.seigneur.domain.models.Section
 import com.gauvain.seigneur.domain.repository.HomeRepository
 import com.gauvain.seigneur.remote.RemoteDaay

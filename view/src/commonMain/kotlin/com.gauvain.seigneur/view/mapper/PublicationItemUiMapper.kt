@@ -21,7 +21,7 @@ class PublicationItemUiMapper(
                 comment = model.comment,
                 mood = moodUiMapper.map(model.mood),
                 achievements = model.achievements.map { sectionAchievement ->
-                    achievementMapper.map(sectionAchievement)
+                    achievementMapper.map(sectionAchievement, false, null)
                 },
                 media = model.media,
             )
@@ -31,7 +31,7 @@ class PublicationItemUiMapper(
                 comment = model.comment,
                 mood = moodUiMapper.map(model.mood),
                 achievements = model.achievements.map { sectionAchievement ->
-                    achievementMapper.map(sectionAchievement)
+                    achievementMapper.map(sectionAchievement, false, null)
                 },
                 medias = model.medias,
             )

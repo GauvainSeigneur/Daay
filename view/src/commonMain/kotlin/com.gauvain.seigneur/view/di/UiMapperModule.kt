@@ -1,6 +1,7 @@
 package com.gauvain.seigneur.view.di
 
 import com.gauvain.seigneur.view.mapper.AchievementTagUiMapper
+import com.gauvain.seigneur.view.mapper.AddPublicationUiMapper
 import com.gauvain.seigneur.view.mapper.MoodUiMapper
 import com.gauvain.seigneur.view.mapper.PublicationItemUiMapper
 import com.gauvain.seigneur.view.mapper.ReminderUiMapper
@@ -14,4 +15,5 @@ val uiMapperModule = module {
     factoryOf(::PublicationItemUiMapper)
     factoryOf(::ReminderUiMapper)
     factoryOf(::SectionItemUiMapper)
+    factoryOf(::AddPublicationUiMapper)
 }

@@ -1,16 +1,23 @@
 package com.gauvain.seigneur.view.mapper
 
 import com.gauvain.seigneur.domain.models.AchievementCategory
+import com.gauvain.seigneur.view.action.UiAction
 import com.gauvain.seigneur.view.models.AchievementTagItemUiModel
 import com.gauvain.seigneur.view.models.AchievementTagType
 import com.gauvain.seigneur.view.models.RemoteColorUiModel
 
 class AchievementTagUiMapper {
 
-    fun map(model: AchievementCategory): AchievementTagItemUiModel = AchievementTagItemUiModel(
+    fun map(
+        model: AchievementCategory,
+        isSelected: Boolean,
+        uiAction: UiAction.NoArgs?
+    ): AchievementTagItemUiModel = AchievementTagItemUiModel(
         name = model.name,
         size = model.groupSize,
-        type = when(model) {
+        isSelected = isSelected,
+        onClick = uiAction,
+        type = when (model) {
             is AchievementCategory.UserRelated -> AchievementTagType.User(
                 colors = model.colors.map { color ->
                     RemoteColorUiModel(
@@ -22,6 +29,7 @@ class AchievementTagUiMapper {
                 },
                 isAchieved = model.isAchieved
             )
+
             is AchievementCategory.NotRelated -> AchievementTagType.Bordered
         }
     )

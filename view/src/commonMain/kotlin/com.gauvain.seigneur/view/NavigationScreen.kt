@@ -48,8 +48,10 @@ fun BeRealNavHost(
                 topBar = {
                     TopAppBar(
                         title = {
-                            Text(text = "Daay",
-                                style = MaterialTheme.typography.headlineMedium)
+                            Text(
+                                text = "Daay",
+                                style = MaterialTheme.typography.headlineMedium
+                            )
                         }
                     )
                 },
@@ -79,6 +81,7 @@ fun BeRealNavHost(
                         composable(route = NavigationScreen.Add.name) {
                             AddScreen(
                                 modifier = Modifier
+                                    .padding(top = innerPadding.calculateTopPadding())
                                     .fillMaxSize()
                             )
                         }
