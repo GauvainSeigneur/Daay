@@ -3,7 +3,7 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
 
 | Android | iOS | 
 | ------ | ------ |
-| [!Android] https://github.com/user-attachments/assets/2cb8fcb7-cb0a-4d23-b846-b201ec8a5cc3 | https://github.com/user-attachments/assets/89b23911-679a-4eb6-a40e-52db348dff10 | 
+| https://github.com/user-attachments/assets/2cb8fcb7-cb0a-4d23-b846-b201ec8a5cc3 | https://github.com/user-attachments/assets/89b23911-679a-4eb6-a40e-52db348dff10 | 
 
 Architecture
 The project architecture is based on Clean Architecture, with a clear separation of concerns:
