@@ -16,15 +16,21 @@ import kotlinx.coroutines.launch
  * Check https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-viewmodel.html#using-viewmodel-in-common-code
  * for ios or jvm implementation
  */
-class NavigationViewModel : ViewModel() {
+class NavigationViewModel : ViewModel(), DaayNavController {
 
     private val navigationSharedFlow = MutableSharedFlow<NavigationScreen?>()
     val navigationFlow: Flow<NavigationScreen?>
         get() = navigationSharedFlow
 
-    fun navigate(screen: NavigationScreen?) {
+    override fun navigate(screen: NavigationScreen) {
         viewModelScope.launch {
             navigationSharedFlow.emit(screen)
+        }
+    }
+
+    override fun goBack() {
+        viewModelScope.launch {
+            navigationSharedFlow.emit(null)
         }
     }
 }

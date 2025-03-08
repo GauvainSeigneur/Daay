@@ -2,7 +2,7 @@ package com.gauvain.seigneur.remote.http
 
 import io.ktor.client.HttpClient
 
-private const val BASE_URL = "https://api.mocki.io/v2/dpq3yuod/"
+private const val BASE_URL = "https://api.mocki.io/v2/ark90ka0/"
 
 class HttpDaayFactory(
     httpClientFactory: HttpClientFactory,
