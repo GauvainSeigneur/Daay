@@ -1,4 +1,9 @@
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
+
+| Android | iOS | 
+| ------ | ------ |
+| | |
 
 Architecture
 The project architecture is based on Clean Architecture, with a clear separation of concerns:
